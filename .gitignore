@@ -15,8 +15,6 @@ yarn-error.log*
 dist/
 build/
 
-# Uploaded images / files
-uploads/
 
 # OS generated files
 .DS_Store
