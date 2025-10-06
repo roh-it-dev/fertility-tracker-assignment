@@ -1,6 +1,9 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+console.log("🟢 KNEX INIT CHECK:", {
+  DB_HOST: process.env.DB_HOST,
+  DB_USER: process.env.DB_USER,
+  DB_NAME: process.env.DB_NAME,
+  DB_CLIENT: 'pg'
+});
 
 const knex = require('knex');
 
@@ -11,10 +14,8 @@ const db = knex({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: Number(process.env.DB_PORT)
-  },
-  migrations: {
-    directory: './migrations'
+    port: Number(process.env.DB_PORT),
+    ssl: { rejectUnauthorized: false } 
   }
 });
 
