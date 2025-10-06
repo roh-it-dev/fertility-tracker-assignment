@@ -1,4 +1,4 @@
-const db = require("../config/knex");
+const db = require("../config/db");
 
 const TestImage = {
   async create(testId, filePath) {
