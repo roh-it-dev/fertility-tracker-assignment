@@ -8,7 +8,7 @@
     "dev": "nodemon server.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "build": "npm install && npm run migrate -- --env production && npm run seed -- --env production"
+    "build": "npm install && npm run migrate -- --env production"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
