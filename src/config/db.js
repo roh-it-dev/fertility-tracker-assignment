@@ -19,14 +19,13 @@ const config = {
         : false,
   },
   pool: { min: 0, max: 7 },
-  migrations: { directory: './src/migrations' },
-  seeds: { directory: './src/seeds' },
+  migrations: { directory: path.join(__dirname, '..', 'migrations') },
+  seeds: { directory: path.join(__dirname, '..', 'seeds') },
 };
 
 // Create the Knex instance
 const db = knex(config);
 
-// Optional connection check (for Render logs)
 db.raw('SELECT 1')
   .then(() => console.log(`Connected to ${environment} database`))
   .catch((err) => console.error('Database connection failed:', err));
