@@ -1,7 +1,7 @@
 require('dotenv').config();
 const path = require('path');
 const knex = require('knex');
-const config = require('../../knexfile'); // import from root
+const config = require('../../knexfile'); 
 
 const environment = process.env.NODE_ENV || 'development';
 

@@ -1,20 +1,15 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.up = function(knex) {
-    return knex.schema.alterTable('tests', function(table) {
-    table.boolean('is_relevant').defaultTo(false).notNullable();
+exports.up = function (knex) {
+  return knex.schema.hasColumn('tests', 'is_relevant').then(function (exists) {
+    if (!exists) {
+      return knex.schema.alterTable('tests', function (table) {
+        table.boolean('is_relevant').notNullable().defaultTo(false);
+      });
+    }
   });
 };
 
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.down = function(knex) {
-     return knex.schema.alterTable('tests', function(table) {
+exports.down = function (knex) {
+  return knex.schema.alterTable('tests', function (table) {
     table.dropColumn('is_relevant');
   });
-  
 };
